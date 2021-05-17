@@ -1,10 +1,14 @@
 edu/game/GameField.java
  edu.game.GameField
-edu/game/Cell.java
- edu.game.Cell
-edu/game/Controller.java
- edu.game.Controller
 edu/game/Main.java
  edu.game.Main
+edu/game/Cell.java
+ edu.game.Cell
+edu/game/Colors.java
+ edu.game.Colors
+edu/game/View.java
+ edu.game.View
 edu/game/Model.java
  edu.game.Model
+edu/game/Controller.java
+ edu.game.Controller
