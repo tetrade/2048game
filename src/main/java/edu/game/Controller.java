@@ -3,19 +3,12 @@ package edu.game;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
-import java.awt.*;
 import java.net.URL;
-import java.time.format.TextStyle;
 import java.util.ResourceBundle;
-
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 public class Controller extends View implements Initializable {
@@ -45,29 +38,41 @@ public class Controller extends View implements Initializable {
     }
 
     @FXML
-    void game(ActionEvent ae){
-        this.startGame();
-    }
+    void game(ActionEvent ae) { vanishLoseText(); this.startGame(); }
 
     @FXML
     void keyListener(KeyEvent event) {
-       this.makeMove(event.getCode().toString());
+        this.makeMove(event.getCode().toString());
     }
 
-    private void makeMove(String dir){
-        switch (dir) {
-            case("W"): model.move("w");
-                break;
-            case("A"): model.move("a");
-                break;
-            case("D"): model.move("d");
-                break;
-            case("S"): model.move("s");
+    private void makeMove(String dir) {
+        if ("asdw".contains(dir.toLowerCase())) {
+            boolean a;
+            switch (dir) {
+                case ("W"):
+                    a = model.move("w");
+                    break;
+                case ("A"):
+                    a = model.move("a");
+                    break;
+                case ("D"):
+                    a = model.move("d");
+                    break;
+                default:
+                    a = model.move("s");
+                    break;
+            }
+            updateField(model.gameField);
+            updateScore(model.maxvalue, model.record);
+            if (!a) {
+               getLoseText();
+            }
         }
-        updateField(model.gameField);
     }
+
 
     private void startGame() {
+        updateScore(0, model.record);
         model.resetGame();
         updateField(model.gameField);
     }

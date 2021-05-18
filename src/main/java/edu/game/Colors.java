@@ -1,7 +1,6 @@
 package edu.game;
 
 import javafx.scene.paint.Color;
-
 import java.util.HashMap;
 
 public class Colors {
@@ -17,7 +16,7 @@ public class Colors {
         COLOR_CELL.put(16, "#f2b179");
         COLOR_CELL.put(32, "#f69659");
         COLOR_CELL.put(64, "#f67c5f");
-        COLOR_CELL.put(128, "#edce71");
+        COLOR_CELL.put(128, "#f67c5f");
         COLOR_CELL.put(256, "#e9cc64");
         COLOR_CELL.put(512, "#ebc654");
         COLOR_CELL.put(1024, "#edc53f");
