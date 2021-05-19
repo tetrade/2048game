@@ -19,16 +19,12 @@ public class GameField {
         field[num / 4][num % 4].setValue(value);
     }
 
-    public int getVale(int num) {
-        return field[num / 4][num % 4].value;
-    }
+    public int getVale(int num) { return field[num / 4][num % 4].value; }
 
 
     public boolean equals(GameField gameField) {
         for (int i = 0; i < 16; i++) {
-            if (this.getVale(i) != gameField.getVale(i)) {
-                return false;
-            }
+            if (this.getVale(i) != gameField.getVale(i)) { return false; }
         }
         return true;
     }

@@ -38,43 +38,23 @@ public class Controller extends View implements Initializable {
     }
 
     @FXML
-    void game(ActionEvent ae) { vanishLoseText(); this.startGame(); }
+    void game(ActionEvent ae) { this.startGame(); }
 
     @FXML
     void keyListener(KeyEvent event) {
-        this.makeMove(event.getCode().toString());
+        String dir = event.getCode().toString().toLowerCase();
+        if ("asdw".contains(dir)) { this.makeMove(dir); };
     }
 
     private void makeMove(String dir) {
-        if ("asdw".contains(dir.toLowerCase())) {
-            boolean a;
-            switch (dir) {
-                case ("W"):
-                    a = model.move("w");
-                    break;
-                case ("A"):
-                    a = model.move("a");
-                    break;
-                case ("D"):
-                    a = model.move("d");
-                    break;
-                default:
-                    a = model.move("s");
-                    break;
-            }
-            updateField(model.gameField);
-            updateScore(model.maxvalue, model.record);
-            if (!a) {
-               getLoseText();
-            }
-        }
+        if (!model.move(dir)) { getLoseText(); }
+        updateView(model.maxvalue, model.record, model.gameField);
     }
 
-
     private void startGame() {
-        updateScore(0, model.record);
         model.resetGame();
-        updateField(model.gameField);
+        vanishLoseText();
+        updateView(model.maxvalue, model.record, model.gameField);
     }
 }
 

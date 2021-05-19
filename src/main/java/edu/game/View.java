@@ -28,7 +28,7 @@ public class View {
     private GridPane scoreBest;
 
 
-    void updateField(GameField gameField) {
+    private void updateField(GameField gameField) {
         gridpane.getChildren().clear();
         for (int i = 0; i < 16; i++) {
             int number = gameField.getVale(i);
@@ -43,7 +43,7 @@ public class View {
         }
 
     }
-    void updateScore(int curScore, int maxScore) {
+    private void updateScore(int curScore, int maxScore) {
         scoreBest.getChildren().clear();
 
         Text curScoreText = new Text(String.valueOf(curScore));
@@ -59,6 +59,10 @@ public class View {
         scoreBest.add(maxScoreText, 1, 0);
     }
 
+    void updateView(int curScore, int maxScore, GameField gameField) {
+        updateScore(curScore, maxScore);
+        updateField(gameField);
+    }
 
     void getLoseText() {
         loseText.setFill(Color.web("#0F0000"));
