@@ -5,25 +5,30 @@ public class GameField {
     public Cell[][] field;
 
     public GameField() {
-       field = new Cell[4][4];
-       int num = 0;
-       for (int i = 0; i < 4; i++) {
-           for (int j = 0; j < 4; j++) {
-               field[i][j] = new Cell(num);
-                num ++;
-           }
-       }
+        field = new Cell[4][4];
+        int num = 0;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                field[i][j] = new Cell(num);
+                num++;
+            }
+        }
     }
 
     public void setVale(int num, int value) {
         field[num / 4][num % 4].setValue(value);
     }
-    public int getVale(int num) { return field[num / 4][num % 4].value; }
+
+    public int getVale(int num) {
+        return field[num / 4][num % 4].value;
+    }
 
 
     public boolean equals(GameField gameField) {
         for (int i = 0; i < 16; i++) {
-            if (this.getVale(i) != gameField.getVale(i)) {return false;}
+            if (this.getVale(i) != gameField.getVale(i)) {
+                return false;
+            }
         }
         return true;
     }
@@ -43,7 +48,7 @@ public class GameField {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 field[i][j] = new Cell(num);
-                num ++;
+                num++;
             }
         }
     }
@@ -53,10 +58,13 @@ public class GameField {
         StringBuilder string = new StringBuilder();
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-               string.append(field[i][j].toString()).append(" ");
-           }
-           string.append("\n");
-       }
-       return string.toString();
+                string.append(field[i][j].toString());
+                if (j != 3) { string.append(" "); }
+            }
+            if (i != 3) { string.append("\n"); }
+        }
+        return string.toString();
     }
 }
+
+

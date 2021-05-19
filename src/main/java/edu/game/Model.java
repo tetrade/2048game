@@ -15,7 +15,7 @@ public class Model {
     private final String chars;
     private int emptyCell;
 
-    public Model(){ gameField = new GameField(); record = 0; maxvalue = 0; chars = "wdsa"; emptyCell = 16;}
+    public Model(){ gameField = new GameField(); record = 0; maxvalue = 0; chars = "asdw"; emptyCell = 16;}
 
     public void resetGame() { emptyCell = 16; gameField.clearField(); addCell(); addCell(); maxvalue = 0;}
 
@@ -78,7 +78,7 @@ public class Model {
 
     private boolean leftMove() { return compressCells() | mergeCells(); }
 
-    boolean move(String dir){
+    public boolean move(String dir){
         rotate(chars.indexOf(dir));
         boolean addCell = leftMove();
         rotate((4 - chars.indexOf(dir)) % 4);
@@ -88,7 +88,7 @@ public class Model {
 
     boolean gameLose() { return emptyCell == 0 && !moveExist(); }
 
-    private void moveNotAdd(String dir){
+    public void moveNotAdd(String dir){
         rotate(chars.indexOf(dir));
         leftMove();
         rotate((4 - chars.indexOf(dir)) % 4);

@@ -39,7 +39,7 @@ public class View {
 
             Rectangle squ = new Rectangle(90, 90, colors.getCellColor(number));
 
-            gridpane.add(new StackPane(squ, text), i / 4, i % 4);
+            gridpane.add(new StackPane(squ, text), i % 4, i / 4);
         }
 
     }
