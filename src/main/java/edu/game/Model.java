@@ -86,7 +86,7 @@ public class Model {
         return !gameLose();
     }
 
-    boolean gameLose() { return emptyCell == 0 && !moveExist(); }
+    public boolean gameLose() { return emptyCell == 0 && !moveExist(); }
 
     public void moveNotAdd(String dir){
         rotate(chars.indexOf(dir));
@@ -94,7 +94,7 @@ public class Model {
         rotate((4 - chars.indexOf(dir)) % 4);
     }
 
-    private boolean moveExist() {
+    public boolean moveExist() {
         Model copyModel = new Model();
         copyModel.gameField = gameField.copy();
         for (String dir: chars.split("")) {
