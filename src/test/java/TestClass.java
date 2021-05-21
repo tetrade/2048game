@@ -124,4 +124,20 @@ public class TestClass {
         for (int i = 0; i < 16; i++) { testModel.gameField.setVale(i, valList[i]); }
         assertTrue(testModel.moveExist());
     }
+
+    @Test
+    public void equalsTest1() {
+        GameField gameField = new GameField();
+        GameField gameField1 = new GameField();
+        int[] valList = {
+                8, 2, 4, 2,
+                128, 0, 256, 32,
+                4, 8, 4, 64,
+                2, 4, 8, 2
+        };
+
+        for (int i = 0; i < 16; i++) { gameField.setVale(i, valList[i]); }
+        for (int i = 0; i < 16; i++) { gameField1.setVale(i, valList[i]); }
+        assertTrue(gameField.equals(gameField1));
+    }
 }

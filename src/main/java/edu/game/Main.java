@@ -17,13 +17,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("main.fxml"));
         Parent root = loader.load();
         primaryStage.getIcons().add(new Image("file:src/main/resources/edu/game/2048.png"));
         primaryStage.setScene(new Scene(root));
         primaryStage.setTitle("2048");
         primaryStage.show();
-
     }
 }

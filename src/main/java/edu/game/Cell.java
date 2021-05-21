@@ -5,7 +5,7 @@ public class Cell {
 
     public Cell(int num) { this.value = 0; this.num = num; }
 
-    public void setValue(int value) { this.value = value; }
+    public void setValue(int value) {this.value = value; }
 
     @Override
     public String toString(){
